@@ -22,11 +22,15 @@ export default function App() {
   function inputEmojiHandler(event) {
     var userInput = event.target.value;
     var matchedMeaning = emojiDictionary[userInput];
+    if (matchedMeaning === undefined) {
+      matchedMeaning = "this emoji is not in our database";
+    }
     setMeaning(matchedMeaning);
   }
 
   function clickEmojiHandler(emoji) {
     var matchedEmoji = emojiDictionary[emoji];
+
     setMeaning(matchedEmoji);
   }
   return (
